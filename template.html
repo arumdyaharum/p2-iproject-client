@@ -6,11 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tweet Filing</title>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-  <style>
-    .dropdown:hover .dropdown-menu {
-      display: block;
-    }
-  </style>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -35,86 +30,158 @@
     <header class="mx-10 flex justify-between mt-10 mb-10">
       <button class="text-2xl font-bold">Tweet Filing</button>
       <div class="w-fit flex justify-between">
-        <!-- desktop menu -->
-        <button id="navbar-home" class="md:block hidden px-4 py-2 font-bold">Home</button>
-        <button id="navbar-logout" class="md:block hidden px-4 py-2 font-bold">Logout</button>
-        <!-- mobile menu -->
-        <div class="dropdown md:hidden block">
-          <button class="rounded inline-flex items-center px-4 py-2">
-            <span class="mr-1 font-bold">Menu</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <ul class="dropdown-menu absolute hidden text-gray-700 pt-1 right-14">
-            <li><a class="rounded-t bg-sky-100 hover:bg-sky-200 py-2 px-3 block whitespace-no-wrap" href="#">Home</a></li>
-            <li><a class="rounded-b bg-sky-100 hover:bg-sky-200 py-2 px-3 block whitespace-no-wrap" href="#">Logout</a></li>
-          </ul>
-        </div>
+        <button id="navbar-home" class="px-4 py-2 font-bold hover:underline focus:underline">Beranda</button>
+        <button id="navbar-logout" class="px-4 py-2 font-bold hover:underline focus:underline">Logout</button>
       </div>
     </header>
     <section class="md:flex box-border h-fit mx-10 p-7 rounded-lg bg-white">
       <div class="md:w-1/2 w-full md:pr-5">
-        <h1 class="md:text-4xl text-3xl mb-10 font-bold">Welcome, arumdyaharum!</h1>
-        <div class="flex justify-between">
-          <h3 class="text-lg mb-3 font-bold">Daftar Folder Tweet Kamu</h3>
-          <button class="p-2"><i class="fas fa-plus"></i></button>
-        </div>
-        <hr>
-        <table class="table-auto mt-4 w-full">
-          <thead>
-            <tr>
-              <th class="bg-sky-500 text-white py-2">Nama Folder</th>
-              <th class="bg-sky-500 text-white py-2">Jumlah Tweet</th>
-              <th class="bg-sky-500 text-white py-2">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="bg-sky-100 p-3">
-                <button class="hover:underline">The Sliding Mr. Bones</button>
-              </td>
-              <td class="bg-sky-100 p-3 text-center">1961</td>
-              <td class="bg-sky-100 p-3 text-center">
-                <button class="px-2 py-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
-                <button class="px-2 py-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
-              </td>
-            </tr>
-            <tr>
-              <td class="bg-sky-100 p-3">
-                <button class="hover:underline">The Sliding Mr. Bones</button>
-              </td>
-              <td class="bg-sky-100 p-3 text-center">1961</td>
-              <td class="bg-sky-100 p-3 text-center">
-                <button class="px-2 py-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
-                <button class="px-2 py-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
-              </td>
-            </tr>
-            <tr>
-              <td class="bg-sky-100 p-3">
-                <button class="hover:underline">The Sliding Mr. Bones</button>
-              </td>
-              <td class="bg-sky-100 p-3 text-center">1961</td>
-              <td class="bg-sky-100 p-3 text-center">
-                <button class="px-2 py-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
-                <button class="px-2 py-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="md:w-1/2 w-full md:pl-5 md:mt-0 mt-5">
-        <div class="flex justify-between">
-          <h3 class="text-lg mb-3 font-bold">Nama Folders</h3>
-          <div>
+        <div id="home">
+          <h1 class="md:text-4xl text-3xl mb-10 font-bold">Selamat Datang, arumdyaharum!</h1>
+          <div class="flex justify-between items-center text-lg">
+            <h3 class="mb-3 font-bold">Daftar Folder Tweet Kamu</h3>
             <button class="p-2"><i class="fas fa-plus"></i></button>
-            <button class="p-2"><i class="fas fa-pen"></i></button>
+          </div>
+          <hr>
+          <table class="table-auto mt-4 w-full">
+            <thead>
+              <tr class="bg-sky-500 text-white">
+                <th class="py-2">Nama Folder</th>
+                <th class="py-2">Jumlah Tweet</th>
+                <th class="py-2">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-sky-200">
+                <td class="p-3">
+                  <button class="hover:underline focus:underline font-medium">The Sliding Mr. Bones</button>
+                </td>
+                <td class="p-3 text-center">1961</td>
+                <td class="px-3 py-2 text-center">
+                  <button class="px-2 py-1 my-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
+                  <button class="px-2 py-1 my-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
+                </td>
+              </tr>
+              <tr class="bg-sky-100">
+                <td class="p-3">
+                  <button class="hover:underline focus:underline font-medium">The Sliding Mr. Bones</button>
+                </td>
+                <td class="p-3 text-center">1961</td>
+                <td class="px-3 py-2 text-center">
+                  <button class="px-2 py-1 my-1  rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
+                  <button class="px-2 py-1 my-1  rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
+                </td>
+              </tr>
+              <tr class="bg-sky-200">
+                <td class="p-3">
+                  <button class="hover:underline focus:underline font-medium">The Sliding Mr. Bones</button>
+                </td>
+                <td class="p-3 text-center">1961</td>
+                <td class="px-3 py-2 text-center">
+                  <button class="px-2 py-1 my-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
+                  <button class="px-2 py-1 my-1  rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="my-3 flex justify-center">
+            <button class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">1</button>
+            <button class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">2</button>
+            <button class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">3</button>
           </div>
         </div>
-        <hr>
-        <div class="my-3">
-          <p>1. Deskripsi</p>
-          <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Sunsets don&#39;t get much better than this one over <a href="https://twitter.com/GrandTetonNPS?ref_src=twsrc%5Etfw">@GrandTetonNPS</a>. <a href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw">#nature</a> <a href="https://twitter.com/hashtag/sunset?src=hash&amp;ref_src=twsrc%5Etfw">#sunset</a> <a href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a></p>&mdash; US Department of the Interior (@Interior) <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          <p>1. Deskripsi</p>
-          <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Sunsets don&#39;t get much better than this one over <a href="https://twitter.com/GrandTetonNPS?ref_src=twsrc%5Etfw">@GrandTetonNPS</a>. <a href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw">#nature</a> <a href="https://twitter.com/hashtag/sunset?src=hash&amp;ref_src=twsrc%5Etfw">#sunset</a> <a href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a></p>&mdash; US Department of the Interior (@Interior) <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <div id=home_add_edit">
+          <h1 class="md:text-4xl text-3xl mb-10 font-bold">Selamat Datang, arumdyaharum!</h1>
+          <div class="flex justify-between items-center">
+            <h3 class="text-lg mb-3 font-bold">Tambah/Edit Folder</h3>
+            <button class="p-2 hover:underline focus:underline font-medium text-right">Kembali ke Daftar Folder</button>
+          </div>
+          <hr>
+          <form class="my-3">
+            <div class="flex flex-col mb-3">
+              <label for="nama_folder" class="mb-2 font-medium">Nama Folder</label>
+              <input type="text" name="nama_folder" id="nama_folder" placeholder="Nama Folder" class="py-2 px-3 bg-sky-100 placeholder:text-sky-500" />
+            </div>
+            <button class="w-fit px-3 py-2 my-1 rounded-lg bg-sky-500 text-white">Add/Edit</button>
+          </form>
+        </div>
+      </div>
+      <div class="md:w-1/2 w-full md:pl-5 md:mt-0 mt-5">
+        <div id="folder">
+          <div class="flex justify-between items-center text-lg">
+            <h3 class="mb-3 font-bold">Nama Folders</h3>
+            <div>
+              <button class="p-2"><i class="fas fa-plus"></i></button>
+              <button class="p-2"><i class="far fa-eye-slash"></i></button>
+            </div>
+          </div>
+          <hr>
+          <div class="my-3">
+            <p class="font-medium">1. Deskripsi</p>
+            <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Sunsets don&#39;t get much better than this one over <a href="https://twitter.com/GrandTetonNPS?ref_src=twsrc%5Etfw">@GrandTetonNPS</a>. <a href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw">#nature</a> <a href="https://twitter.com/hashtag/sunset?src=hash&amp;ref_src=twsrc%5Etfw">#sunset</a> <a href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a></p>&mdash; US Department of the Interior (@Interior) <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+          <div class="my-3">
+            <p class="font-medium">1. Deskripsi</p>
+            <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">Sunsets don&#39;t get much better than this one over <a href="https://twitter.com/GrandTetonNPS?ref_src=twsrc%5Etfw">@GrandTetonNPS</a>. <a href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw">#nature</a> <a href="https://twitter.com/hashtag/sunset?src=hash&amp;ref_src=twsrc%5Etfw">#sunset</a> <a href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a></p>&mdash; US Department of the Interior (@Interior) <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+          <div class="my-3 flex justify-center">
+            <button class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">1</button>
+            <button class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">2</button>
+            <button class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">3</button>
+          </div>
+        </div>
+        <div id="folder_detail">
+          <div class="flex justify-between items-center text-lg">
+            <h3 class="mb-3 font-bold">Nama Folders</h3>
+            <div>
+              <button class="p-2"><i class="fas fa-plus"></i></button>
+              <button class="p-2"><i class="far fa-eye"></i></button>
+            </div>
+          </div>
+          <hr>
+          <div class="my-3">
+              <p class="font-medium">1. Deskripsi</p>
+              <p><span class="font-medium">Tema :&nbsp;</span>Dark</p>
+              <p class="break-all"><span class="font-medium">Link :&nbsp;</span>https://twitter.com/Interior/status/463440424141459456</p>
+              <button class="px-2 py-1 mt-1 rounded-lg bg-sky-500 text-white">Edit</button>
+          </div>
+          <div class="my-3">
+            <p class="font-medium">2. Deskripsi</p>
+            <p><span class="font-medium">Tema :&nbsp;</span>Dark</p>
+            <p class="break-all"><span class="font-medium">Link :&nbsp;</span>https://twitter.com/Interior/status/463440424141459456</p>
+            <button class="px-2 py-1 mt-1 rounded-lg bg-sky-500 text-white">Edit</button>
+          </div>
+          <div class="my-3">
+            <p class="font-medium">3. Deskripsi</p>
+            <p><span class="font-medium">Tema :&nbsp;</span>Dark</p>
+            <p class="break-all"><span class="font-medium">Link :&nbsp;</span>https://twitter.com/Interior/status/463440424141459456</p>
+            <button class="px-2 py-1 mt-1 rounded-lg bg-sky-500 text-white">Edit</button>
+          </div>
+        </div>
+        <div id="folder_add_edit">
+          <div class="flex justify-between items-center">
+            <h3 class="text-lg mb-3 font-bold">Nama Folders</h3>
+            <button class="p-2 font-medium hover:underline focus:underline text-right">Kembali ke Timeline</button>
+          </div>
+          <hr>
+          <form class="my-3">
+            <div class="flex flex-col mb-3">
+              <label for="deskripsi" class="mb-2 font-medium">Deskripsi</label>
+              <input type="text" name="deskripsi" id="deskripsi" placeholder="Deskripsi" class="py-2 px-3 bg-sky-100 placeholder:text-sky-500" />
+            </div>
+            <div class="flex flex-col mb-3">
+              <label for="tema" class="mb-2 font-medium">Tema</label>
+              <div class="flex items-center">
+                <input type="radio" name="tema" id="tema" value="light" checked /> &nbsp; Light &nbsp; &nbsp; &nbsp; &nbsp;
+                <input type="radio" name="tema" id="tema" value="dark" /> &nbsp; Dark
+              </div>
+            </div>
+            <div class="flex flex-col mb-3">
+              <label for="link" class="mb-2 font-medium">Link Tweet</label>
+              <input type="text" name="link" id="link" placeholder="Link Tweet" class="py-2 px-3 bg-sky-100 placeholder:text-sky-500" />
+            </div>
+            <button class="w-fit px-3 py-2 my-1 rounded-lg bg-sky-500 text-white">Add/Edit</button>
+          </form>
         </div>
       </div>
     </section>
