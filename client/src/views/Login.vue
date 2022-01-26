@@ -28,6 +28,10 @@ export default {
     doLogin() {
       this.$store.dispatch('doLogin', this.user)
     }
+  },
+  created() {
+    this.$store.commit("CHANGE_PASSWORD", '')
+    this.$store.commit("CHANGE_USER", {})
   }
 }
 </script>
