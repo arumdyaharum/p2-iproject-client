@@ -1,0 +1,14 @@
+<template>
+<div class="my-3">
+  <p class="font-medium">3. Deskripsi</p>
+  <p><span class="font-medium">Tema :&nbsp;</span>Dark</p>
+  <p class="break-all mb-1"><span class="font-medium">Link :&nbsp;</span>https://twitter.com/Interior/status/463440424141459456</p>
+  <router-link to="/folders/edit/1" class="px-2 py-1 rounded-lg bg-sky-500 text-white">Edit</router-link>
+</div>
+</template>
+
+<script>
+export default {
+  name: "TweetList",
+}
+</script>
