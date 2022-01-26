@@ -9,6 +9,7 @@ export default new Vuex.Store({
   state: {
     baseURL: 'http://localhost:3000',
     user: {},
+    password: '',
     size: 2,
     folders: {},
     folder: {},
@@ -18,6 +19,9 @@ export default new Vuex.Store({
   mutations: {
     CHANGE_USER(state, payload) {
       state.user = payload
+    },
+    CHANGE_PASSWORD(state, payload) {
+      state.password = payload
     },
     CHANGE_FOLDERS(state, payload) {
       state.folders = payload
@@ -41,6 +45,38 @@ export default new Vuex.Store({
       })
       .then(() => {
         router.push('/login').catch(() => { console.log("Login lagi") })
+      })
+      .catch(err => {
+        console.log(err.response.data.message);
+      })
+    },
+    checkEmail({state, commit}, data) {
+      commit("CHANGE_USER", data)
+      axios({
+        method: "get",
+        url: `${state.baseURL}/email?email=${state.user.email}`
+      })
+      .then(res => {
+        if(res.data.status === "safe") {
+          router.push('/validate').catch(() => { console.log("Validasi lagi") })
+        } else if(res.data.status === "danger") {
+          router.push('/danger').catch(() => { console.log("Danger lagi") })
+        } else {
+          router.push('/warning').catch(() => { console.log("Warning lagi") })
+        }
+      })
+      .catch(err => {
+        console.log(err.response.data.message);
+      })
+    },
+    sendEmail({state, commit}) {
+      axios({
+        method: 'post',
+        url: `${state.baseURL}/otp`,
+        data: { email: state.user.email }
+      })
+      .then(res => {
+        commit('CHANGE_PASSWORD', res.data.password)
       })
       .catch(err => {
         console.log(err.response.data.message);

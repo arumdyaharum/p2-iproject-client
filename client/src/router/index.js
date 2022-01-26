@@ -10,6 +10,21 @@ const routes = [
     component: () => import('../views/Register.vue')
   },
   {
+    path: '/danger',
+    name: 'Danger',
+    component: () => import('../views/Danger.vue')
+  },
+  {
+    path: '/warning',
+    name: 'Warning',
+    component: () => import('../views/Warning.vue')
+  },
+  {
+    path: '/validate',
+    name: 'Validation',
+    component: () => import('../views/Validation.vue')
+  },
+  {
     path: '/login',
     name: 'Login',
     component: () => import('../views/Login.vue')
@@ -88,9 +103,9 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const access_token = localStorage.getItem("access_token") || ''
-  if((to.name === "Login" || to.name === "Register") && !access_token) {
+  if((to.name === "Login" || to.name === "Register" || to.name === "Danger" || to.name === "Warning" || to.name === "Validation") && !access_token) {
     next()
-  } else if((to.name !== "Login" || to.name !== "Register") && !access_token) {
+  } else if((to.name !== "Login" || to.name !== "Register" || to.name !== "Danger" || to.name !== "Warning" || to.name !== "Validation") && !access_token) {
     next("/login")
   } else {
     next()
