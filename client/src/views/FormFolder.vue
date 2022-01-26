@@ -1,14 +1,14 @@
 <template>
 <div id="home_add_edit">
   <div class="flex justify-between items-center">
-    <h3 class="text-lg mb-3 font-bold">{{ page }} Folder {{ folder.name }}</h3>
+    <h3 class="text-lg mb-3 font-bold">{{ page }} Folder</h3>
     <router-link to="/" class="p-2 hover:underline focus:underline font-medium text-right">Kembali ke Daftar Folder</router-link>
   </div>
   <hr>
   <form @submit.prevent="doFolder" class="my-3">
     <div class="flex flex-col mb-3">
       <label for="nama_folder" class="mb-2 font-medium">Nama Folder <p v-show='page === "Ubah"'>* Tulis ulang jika tidak ingin mengubahnya</p></label>
-      <input type="text" v-model="name" name="nama_folder" id="nama_folder" placeholder="Nama Folder" class="py-2 px-3 bg-sky-100 placeholder:text-sky-500" />
+      <input type="text" v-model="folder" name="nama_folder" id="nama_folder" placeholder="Nama Folder" class="py-2 px-3 bg-sky-100 placeholder:text-sky-500" />
     </div>
     <button class="w-fit px-3 py-2 my-1 rounded-lg bg-sky-500 text-white">{{ page }}</button>
   </form>
@@ -25,7 +25,14 @@ export default {
   },
   computed: {
     page() { return this.$route.path === '/add' ? "Tambah" : "Ubah" },
-    folder() { return this.$store.state.folder }
+    folder: { 
+      get() {
+        return this.$store.state.folder.name
+      },
+      set(data) {
+        this.name = data
+      }
+    }
   },
   methods: {
     doFolder() {
