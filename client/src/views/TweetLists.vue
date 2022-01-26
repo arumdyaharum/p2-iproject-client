@@ -8,9 +8,9 @@
     </div>
   </div>
   <hr>
-  <TweetList v-for="(tweet, index) in tweets.data" :key="tweet.id" :tweet="tweet" :index="index" :folderId="$route.params.id" />
+  <TweetList v-for="(tweet, index) in tweets.data" :key="tweet.id" :tweet="tweet" :index="index + ($route.params.page * size) - size" :folderId="$route.params.id" />
   <div class="my-3 flex justify-center">
-    <router-link v-for="index in tweets.totalPages" :key="index" :to='"/" + index' @click.native="fetchTweets"
+    <router-link v-for="index in tweets.totalPages" :key="index" :to='"/folders/list/" + folder.id + "/" + index' @click.native="fetchTweets"
     class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">{{ index }}</router-link>
   </div>
 </div>
@@ -25,7 +25,8 @@ export default {
   },
   computed: {
     tweets() { return this.$store.state.tweets },
-    folder() { return this.$store.state.folder }
+    folder() { return this.$store.state.folder },
+    size() { return this.$store.state.size }
   },
   methods: {
     fetchTweets() {
