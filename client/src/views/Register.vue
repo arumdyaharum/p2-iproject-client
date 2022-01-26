@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     doRegister() {
-      this.$router.push('/')
+        this.$store.dispatch("doRegister", this.user)
     }
   }
 }

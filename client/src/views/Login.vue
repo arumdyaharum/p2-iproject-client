@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     doLogin() {
-      this.$router.push('/')
+      this.$store.dispatch('doLogin', this.user)
     }
   }
 }
