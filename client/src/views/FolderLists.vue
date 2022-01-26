@@ -1,6 +1,5 @@
 <template>
-<div id="home" class="">
-<!-- <div id="home" class="md:block hidden"> -->
+<div id="home" :class='{"md:block hidden": tweetPage}'>
   <div class="flex justify-between items-center text-lg">
     <h3 class="mb-3 font-bold">Daftar Folder Tweet Kamu</h3>
     <router-link to="/add" class="p-2"><i class="fas fa-plus"></i></router-link>
@@ -14,33 +13,6 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="bg-sky-200">
-        <td class="p-3">
-          <button class="hover:underline focus:underline font-medium">The Sliding Mr. Bones</button>
-        </td>
-        <td class="px-3 py-2 text-center">
-          <button class="px-2 py-1 my-1 mr-2 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
-          <button class="px-2 py-1 my-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
-        </td>
-      </tr>
-      <tr class="bg-sky-100">
-        <td class="p-3">
-          <button class="hover:underline focus:underline font-medium">The Sliding Mr. Bones</button>
-        </td>
-        <td class="px-3 py-2 text-center">
-          <button class="px-2 py-1 my-1 mr-2 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
-          <button class="px-2 py-1 my-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
-        </td>
-      </tr>
-      <tr class="bg-sky-200">
-        <td class="p-3">
-          <button class="hover:underline focus:underline font-medium">The Sliding Mr. Bones</button>
-        </td>
-        <td class="px-3 py-2 text-center">
-          <button class="px-2 py-1 my-1 mr-2 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
-          <button class="px-2 py-1 my-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
-        </td>
-      </tr>
       <TableRow v-for="(folder, index) in folders.data" :key="folder.id" :folder="folder" :index="index" />
     </tbody>
   </table>
@@ -60,7 +32,8 @@ export default {
   },
   computed: {
     page() { return this.$route.params.page || 1 },
-    folders() { return this.$store.state.folders }
+    folders() { return this.$store.state.folders },
+    tweetPage() { return this.$route.path.split("/")[1] === "folders" ? true : false }
   },
   methods: {
     fetchFolders() {
