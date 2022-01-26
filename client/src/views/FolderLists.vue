@@ -10,7 +10,6 @@
     <thead>
       <tr class="bg-sky-500 text-white">
         <th class="py-2">Nama Folder</th>
-        <th class="py-2">Jumlah Tweet</th>
         <th class="py-2">Action</th>
       </tr>
     </thead>
@@ -19,7 +18,6 @@
         <td class="p-3">
           <button class="hover:underline focus:underline font-medium">The Sliding Mr. Bones</button>
         </td>
-        <td class="p-3 text-center">1961</td>
         <td class="px-3 py-2 text-center">
           <button class="px-2 py-1 my-1 mr-2 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
           <button class="px-2 py-1 my-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
@@ -29,7 +27,6 @@
         <td class="p-3">
           <button class="hover:underline focus:underline font-medium">The Sliding Mr. Bones</button>
         </td>
-        <td class="p-3 text-center">1961</td>
         <td class="px-3 py-2 text-center">
           <button class="px-2 py-1 my-1 mr-2 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
           <button class="px-2 py-1 my-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
@@ -39,19 +36,17 @@
         <td class="p-3">
           <button class="hover:underline focus:underline font-medium">The Sliding Mr. Bones</button>
         </td>
-        <td class="p-3 text-center">1961</td>
         <td class="px-3 py-2 text-center">
           <button class="px-2 py-1 my-1 mr-2 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
           <button class="px-2 py-1 my-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
         </td>
       </tr>
-      <TableRow />
+      <TableRow v-for="(folder, index) in folders.data" :key="folder.id" :folder="folder" :index="index" />
     </tbody>
   </table>
   <div class="my-3 flex justify-center">
-    <router-link to="/" class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">1</router-link>
-    <router-link to="/2" class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">2</router-link>
-    <router-link to="/3" class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">3</router-link>
+    <router-link v-for="index in folders.totalPages" :key="index" :to='"/" + index' @click.native="fetchFolders"
+    class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">{{ index }}</router-link>
   </div>
 </div>
 </template>
@@ -62,6 +57,18 @@ export default {
   name: "FolderLists",
   components: {
     TableRow
-  }
+  },
+  computed: {
+    page() { return this.$route.params.page || 1 },
+    folders() { return this.$store.state.folders }
+  },
+  methods: {
+    fetchFolders() {
+      this.$store.dispatch("fetchFolders", this.page)
+    }
+  },
+  created() {
+    this.fetchFolders()
+  },
 }
 </script>
