@@ -27,7 +27,11 @@ export default {
     page() { return this.$route.path === '/add' ? "Tambah" : "Ubah" },
     folder: { 
       get() {
-        return this.$store.state.folder.name
+        if(this.page === "Ubah") {
+          return this.$store.state.folder.name
+        } else {
+          return this.name
+        }
       },
       set(data) {
         this.name = data
@@ -36,7 +40,7 @@ export default {
   },
   methods: {
     doFolder() {
-      if(this.$route.path === '/add') {
+      if(this.page === 'Tambah') {
         this.$store.dispatch("doAddFolder", this.name)
       } else {
         this.$store.dispatch("doEditFolder", {name: this.name, id: this.$route.params.id})

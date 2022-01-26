@@ -43,7 +43,11 @@ export default {
     folder() { return this.$store.state.folder },
     tweet_desc: { 
       get() {
-        return this.$store.state.tweet.description
+        if(this.page === "Ubah") {
+          return this.$store.state.tweet.description
+        } else {
+          return this.data.description
+        }
       },
       set(data) {
         this.data.description = data
@@ -51,7 +55,11 @@ export default {
     },
     tweet_theme: { 
       get() {
-        return this.$store.state.tweet.theme
+        if(this.page === "Ubah") {
+          return this.$store.state.tweet.theme
+        } else {
+          return this.data.theme
+        }
       },
       set(data) {
         this.data.theme = data
@@ -59,7 +67,11 @@ export default {
     },
     tweet_tweetId: { 
       get() {
-        return this.$store.state.tweet.tweetId
+        if(this.page === "Ubah") {
+          return this.$store.state.tweet.tweetId
+        } else {
+          return this.data.tweetId
+        }
       },
       set(data) {
         this.data.tweetId = data
