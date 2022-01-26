@@ -11,7 +11,9 @@ export default new Vuex.Store({
     user: {},
     size: 2,
     folders: {},
-    folder: {}
+    folder: {},
+    tweets: {},
+    tweet: {}
   },
   mutations: {
     CHANGE_USER(state, payload) {
@@ -22,6 +24,12 @@ export default new Vuex.Store({
     },
     CHANGE_FOLDER(state, payload) {
       state.folder = payload
+    },
+    CHANGE_TWEETS(state, payload) {
+      state.tweets = payload
+    },
+    CHANGE_TWEET(state, payload) {
+      state.tweet = payload
     }
   },
   actions: {
@@ -141,6 +149,84 @@ export default new Vuex.Store({
       .then(() => {
         dispatch("fetchFolders")
         router.push('/').catch(() => { console.log("Home lagi") })
+      })
+      .catch(err => {
+        console.log(err.response.data.message);
+      })
+    },
+    fetchTweets({state, commit}, data) {
+      axios({
+        method: "get",
+        url: `${state.baseURL}/tweets/${data.id}?size=${state.size}&page=${data.page}`,
+        headers: {
+          access_token: localStorage.getItem('access_token')
+        }
+      })
+      .then(res => {
+        commit("CHANGE_TWEETS", res.data)
+      })
+      .catch(err => {
+        console.log(err.response.data.message);
+      })
+    },
+    fetchTweet({state, commit}, id) {
+      axios({
+        method: "get",
+        url: `${state.baseURL}/tweets/one/${id}`,
+        headers: {
+          access_token: localStorage.getItem('access_token')
+        }
+      })
+      .then(res => {
+        commit("CHANGE_TWEET", res.data)
+      })
+      .catch(err => {
+        console.log(err.response.data.message);
+      })
+    },
+    doAddTweet({state}, data) {
+      axios({
+        method: 'post',
+        url: `${state.baseURL}/tweets/${data.id}`,
+        data: data.data,
+        headers: {
+          access_token: localStorage.getItem('access_token')
+        }
+      })
+      .then(() => {
+        router.push(`/folders/view/${data.id}/1`).catch(() => { console.log("Timeline lagi") })
+      })
+      .catch(err => {
+        console.log(err.response.data.message);
+      })
+    },
+    doEditTweet({state}, data) {
+      axios({
+        method: 'put',
+        url: `${state.baseURL}/tweets/${data.tweetId}`,
+        data: data.data,
+        headers: {
+          access_token: localStorage.getItem('access_token')
+        }
+      })
+      .then(() => {
+        router.push(`/folders/view/${data.id}/1`).catch(() => { console.log("Timeline lagi") })
+      })
+      .catch(err => {
+        console.log(err.response.data.message);
+      })
+    },
+    doDeleteTweet({state, dispatch}, data) {
+      axios({
+        method: 'delete',
+        url: `${state.baseURL}/tweets/${data.tweetId}`,
+        headers: {
+          access_token: localStorage.getItem('access_token')
+        }
+      })
+      .then(() => {
+        dispatch("fetchTweets", { page: 1, id: data.id })
+        router.push(`/folders/view/${data.id}/1`).catch(() => { console.log("Timeline lagi") })
       })
       .catch(err => {
         console.log(err.response.data.message);
