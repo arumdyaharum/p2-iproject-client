@@ -53,7 +53,7 @@ const routes = [
         }
       },
       {
-        path: "edit/:tweetId",
+        path: "edit/:id/:tweetId",
         name: 'EditTweet',
         components: {
           default: () => import('../views/FolderLists.vue'),
