@@ -10,8 +10,8 @@
   <hr>
   <div class="my-3">
       <p class="font-medium">1. Deskripsi</p>
-      <p><span class="font-medium">Tema :&nbsp;</span>Dark</p>
-      <p class="break-all"><span class="font-medium">Link :&nbsp;</span>https://twitter.com/Interior/status/463440424141459456</p>
+      <p><span class="font-medium">Tema : &nbsp;</span>Dark</p>
+      <p class="break-all"><span class="font-medium">Link : &nbsp;</span>https://twitter.com/Interior/status/463440424141459456</p>
       <button class="px-2 py-1 mt-1 rounded-lg bg-sky-500 text-white">Edit</button>
   </div>
   <div class="my-3">
@@ -28,9 +28,9 @@
   </div>
   <TweetList />
   <div class="my-3 flex justify-center">
-    <router-link to="/folders/view/1/1" class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">1</router-link>
-    <router-link to="/folders/view/1/2" class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">2</router-link>
-    <router-link to="/folders/view/1/3" class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">3</router-link>
+    <router-link to="/folders/list/1/1" class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">1</router-link>
+    <router-link to="/folders/list/1/2" class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">2</router-link>
+    <router-link to="/folders/list/1/3" class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">3</router-link>
   </div>
 </div>
 </template>

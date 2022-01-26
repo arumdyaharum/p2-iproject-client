@@ -1,5 +1,6 @@
 <template>
-<div id="home">
+<div id="home" class="">
+<!-- <div id="home" class="md:block hidden"> -->
   <div class="flex justify-between items-center text-lg">
     <h3 class="mb-3 font-bold">Daftar Folder Tweet Kamu</h3>
     <router-link to="/add" class="p-2"><i class="fas fa-plus"></i></router-link>
@@ -20,7 +21,7 @@
         </td>
         <td class="p-3 text-center">1961</td>
         <td class="px-3 py-2 text-center">
-          <button class="px-2 py-1 my-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
+          <button class="px-2 py-1 my-1 mr-2 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
           <button class="px-2 py-1 my-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
         </td>
       </tr>
@@ -30,8 +31,8 @@
         </td>
         <td class="p-3 text-center">1961</td>
         <td class="px-3 py-2 text-center">
-          <button class="px-2 py-1 my-1  rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
-          <button class="px-2 py-1 my-1  rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
+          <button class="px-2 py-1 my-1 mr-2 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
+          <button class="px-2 py-1 my-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
         </td>
       </tr>
       <tr class="bg-sky-200">
@@ -40,17 +41,17 @@
         </td>
         <td class="p-3 text-center">1961</td>
         <td class="px-3 py-2 text-center">
-          <button class="px-2 py-1 my-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
-          <button class="px-2 py-1 my-1  rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
+          <button class="px-2 py-1 my-1 mr-2 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></button>
+          <button class="px-2 py-1 my-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
         </td>
       </tr>
       <TableRow />
     </tbody>
   </table>
   <div class="my-3 flex justify-center">
-    <button class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">1</button>
-    <button class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">2</button>
-    <button class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">3</button>
+    <router-link to="/" class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">1</router-link>
+    <router-link to="/2" class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">2</router-link>
+    <router-link to="/3" class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">3</router-link>
   </div>
 </div>
 </template>

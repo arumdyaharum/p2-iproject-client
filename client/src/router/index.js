@@ -5,6 +5,11 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/register',
+    name: 'Register',
+    component: () => import('../views/Register.vue')
+  },
+  {
     path: '/login',
     name: 'Login',
     component: () => import('../views/Login.vue')
@@ -27,7 +32,12 @@ const routes = [
         path: "edit/:id",
         name: 'EditFolder',
         component: () => import('../views/FormFolder.vue')
-      }
+      },
+      {
+        path: ":page",
+        name: 'HomePage',
+        component: () => import('../views/FolderLists.vue')
+      },
     ]
   },
   {
@@ -35,25 +45,9 @@ const routes = [
     component: () => import('../views/Home.vue'),
     children: [
       {
-        path: "view/:id/:page",
-        name: 'TweetEmbed',
-        component: {
-          default: () => import('../views/FolderLists.vue'),
-          second: () => import('../views/TweetEmbed.vue')
-        }
-      },
-      {
-        path: "list/:id/:page",
-        name: 'TweetLists',
-        component: {
-          default: () => import('../views/FolderLists.vue'),
-          second: () => import('../views/TweetLists.vue')
-        }
-      },
-      {
         path: "add/:id",
         name: 'AddTweet',
-        component: {
+        components: {
           default: () => import('../views/FolderLists.vue'),
           second: () => import('../views/FormTweet.vue')
         }
@@ -61,11 +55,27 @@ const routes = [
       {
         path: "edit/:tweetId",
         name: 'EditTweet',
-        component: {
+        components: {
           default: () => import('../views/FolderLists.vue'),
           second: () => import('../views/FormTweet.vue')
         }
-      }
+      },
+      {
+        path: "view/:id/:page",
+        name: 'TweetEmbed',
+        components: {
+          default: () => import('../views/FolderLists.vue'),
+          second: () => import('../views/TweetEmbed.vue')
+        }
+      },
+      {
+        path: "list/:id/:page",
+        name: 'TweetLists',
+        components: {
+          default: () => import('../views/FolderLists.vue'),
+          second: () => import('../views/TweetLists.vue')
+        }
+      },
     ]
   }
 ]

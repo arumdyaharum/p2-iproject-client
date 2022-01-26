@@ -5,7 +5,7 @@
   </td>
   <td class="p-3 text-center">1961</td>
   <td class="px-3 py-2 text-center">
-    <router-link to="/edit/1" class="px-2 py-1 my-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></router-link>
+    <router-link to="/edit/1" class="px-2 py-1 my-1 mr-2 rounded-lg bg-sky-500 text-white"><i class="fas fa-pen fa-sm"></i></router-link>
     <button class="px-2 py-1 my-1 rounded-lg bg-sky-500 text-white"><i class="fas fa-trash fa-sm"></i></button>
   </td>
 </tr>
