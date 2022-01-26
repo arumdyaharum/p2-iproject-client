@@ -1,18 +1,25 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<main id="app" class="container mx-auto text-sky-700 mb-5">
+  <Navbar />
+  <section class="md:flex box-border h-fit mx-10 p-7 rounded-lg bg-white">
+    <div class="md:w-1/2 w-full md:pr-5">
+      <h1 class="md:text-4xl text-3xl mb-10 font-bold">Selamat Datang, arumdyaharum!</h1>
+      <router-view/>
+    </div>
+    <div class="md:w-1/2 w-full md:pl-5 md:mt-0 mt-5">
+      <router-view name="second"/>
+    </div>
+  </section>
+</main>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Navbar from '../components/Navbar.vue'
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
+    Navbar
   }
 }
 </script>

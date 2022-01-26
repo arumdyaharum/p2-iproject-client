@@ -1,22 +1,72 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/Login.vue')
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/',
+    component: () => import('../views/Home.vue'),
+    children: [
+      {
+        path: "",
+        name: 'Home',
+        component: () => import('../views/FolderLists.vue')
+      },
+      {
+        path: "add",
+        name: 'AddFolder',
+        component: () => import('../views/FormFolder.vue')
+      },
+      {
+        path: "edit/:id",
+        name: 'EditFolder',
+        component: () => import('../views/FormFolder.vue')
+      }
+    ]
+  },
+  {
+    path: '/folders',
+    component: () => import('../views/Home.vue'),
+    children: [
+      {
+        path: "view/:id",
+        name: 'TweetEmbed',
+        component: {
+          default: () => import('../views/FolderLists.vue'),
+          second: () => import('../views/TweetEmbed.vue')
+        }
+      },
+      {
+        path: "list/:id",
+        name: 'TweetLists',
+        component: {
+          default: () => import('../views/FolderLists.vue'),
+          second: () => import('../views/TweetLists.vue')
+        }
+      },
+      {
+        path: "add/:id",
+        name: 'AddTweet',
+        component: {
+          default: () => import('../views/FolderLists.vue'),
+          second: () => import('../views/FormTweet.vue')
+        }
+      },
+      {
+        path: "edit/:tweetId",
+        name: 'EditTweet',
+        component: {
+          default: () => import('../views/FolderLists.vue'),
+          second: () => import('../views/FormTweet.vue')
+        }
+      }
+    ]
   }
 ]
 

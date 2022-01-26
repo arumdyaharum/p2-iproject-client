@@ -1,0 +1,31 @@
+<template>
+<div id="folder">
+  <div class="flex justify-between items-center text-lg">
+    <h3 class="mb-3 font-bold">Nama Folders</h3>
+    <div>
+      <button class="p-2"><i class="fas fa-plus"></i></button>
+      <button class="p-2"><i class="far fa-eye-slash"></i></button>
+    </div>
+  </div>
+  <hr>
+  <div class="my-3">
+    <p class="font-medium">1. Deskripsi</p>
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Sunsets don&#39;t get much better than this one over <a href="https://twitter.com/GrandTetonNPS?ref_src=twsrc%5Etfw">@GrandTetonNPS</a>. <a href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw">#nature</a> <a href="https://twitter.com/hashtag/sunset?src=hash&amp;ref_src=twsrc%5Etfw">#sunset</a> <a href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a></p>&mdash; US Department of the Interior (@Interior) <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+  <div class="my-3">
+    <p class="font-medium">1. Deskripsi</p>
+    <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">Sunsets don&#39;t get much better than this one over <a href="https://twitter.com/GrandTetonNPS?ref_src=twsrc%5Etfw">@GrandTetonNPS</a>. <a href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw">#nature</a> <a href="https://twitter.com/hashtag/sunset?src=hash&amp;ref_src=twsrc%5Etfw">#sunset</a> <a href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a></p>&mdash; US Department of the Interior (@Interior) <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+  <div class="my-3 flex justify-center">
+    <button class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">1</button>
+    <button class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">2</button>
+    <button class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">3</button>
+  </div>
+</div>
+</template>
+
+<script>
+export default {
+  name: "TweetEmbed",
+}
+</script>
