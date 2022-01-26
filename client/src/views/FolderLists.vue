@@ -2,7 +2,7 @@
 <div id="home">
   <div class="flex justify-between items-center text-lg">
     <h3 class="mb-3 font-bold">Daftar Folder Tweet Kamu</h3>
-    <button class="p-2"><i class="fas fa-plus"></i></button>
+    <router-link to="/add" class="p-2"><i class="fas fa-plus"></i></router-link>
   </div>
   <hr>
   <table class="table-auto mt-4 w-full">

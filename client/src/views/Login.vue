@@ -16,5 +16,18 @@
 <script>
 export default {
   name: "Login",
+  data() {
+    return {
+      user: {
+        email: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    doLogin() {
+      this.$router.push('/')
+    }
+  }
 }
 </script>

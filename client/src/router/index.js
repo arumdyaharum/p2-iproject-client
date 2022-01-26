@@ -35,7 +35,7 @@ const routes = [
     component: () => import('../views/Home.vue'),
     children: [
       {
-        path: "view/:id",
+        path: "view/:id/:page",
         name: 'TweetEmbed',
         component: {
           default: () => import('../views/FolderLists.vue'),
@@ -43,7 +43,7 @@ const routes = [
         }
       },
       {
-        path: "list/:id",
+        path: "list/:id/:page",
         name: 'TweetLists',
         component: {
           default: () => import('../views/FolderLists.vue'),

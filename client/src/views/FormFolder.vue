@@ -2,7 +2,7 @@
 <div id="home_add_edit">
   <div class="flex justify-between items-center">
     <h3 class="text-lg mb-3 font-bold">Tambah/Edit Folder</h3>
-    <button class="p-2 hover:underline focus:underline font-medium text-right">Kembali ke Daftar Folder</button>
+    <router-link to="/" class="p-2 hover:underline focus:underline font-medium text-right">Kembali ke Daftar Folder</router-link>
   </div>
   <hr>
   <form class="my-3">

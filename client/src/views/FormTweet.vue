@@ -2,7 +2,7 @@
 <div id="folder_add_edit">
   <div class="flex justify-between items-center">
     <h3 class="text-lg mb-3 font-bold">Nama Folders</h3>
-    <button class="p-2 font-medium hover:underline focus:underline text-right">Kembali ke Timeline</button>
+    <router-link to="/folders/view/1/1" class="p-2 font-medium hover:underline focus:underline text-right">Kembali ke Timeline</router-link>
   </div>
   <hr>
   <form class="my-3">

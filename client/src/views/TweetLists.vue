@@ -3,8 +3,8 @@
   <div class="flex justify-between items-center text-lg">
     <h3 class="mb-3 font-bold">Nama Folders</h3>
     <div>
-      <button class="p-2"><i class="fas fa-plus"></i></button>
-      <button class="p-2"><i class="far fa-eye"></i></button>
+      <router-link to="/folders/add/1" class="p-2"><i class="fas fa-plus"></i></router-link>
+      <router-link to="/folders/view/1/1" class="p-2"><i class="far fa-eye"></i></router-link>
     </div>
   </div>
   <hr>
@@ -28,9 +28,9 @@
   </div>
   <TweetList />
   <div class="my-3 flex justify-center">
-    <button class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">1</button>
-    <button class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">2</button>
-    <button class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">3</button>
+    <router-link to="/folders/view/1/1" class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">1</router-link>
+    <router-link to="/folders/view/1/2" class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">2</router-link>
+    <router-link to="/folders/view/1/3" class="px-2 py-1 mx-2 rounded-lg bg-sky-500 text-white font-bold">3</router-link>
   </div>
 </div>
 </template>
