@@ -35,7 +35,7 @@ export default {
   methods: {
     doRegister() {
         this.loading = true
-        this.$store.dispatch("checkEmail", this.user)
+        this.$store.dispatch("fetchUserById", this.user)
     }
   }
 }
