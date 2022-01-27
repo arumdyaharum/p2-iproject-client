@@ -10,7 +10,7 @@
   <hr>
   <div v-for="(tweet, index) in tweets.data" :key="tweet.id" class="my-3">
     <p class="font-medium">{{ index + 1 + ($route.params.page * size) - size }}. {{ tweet.description }}</p>
-    {{ tweet.tweetId }}
+    <Tweet :id="tweet.tweetId" :options="{ theme: tweet.theme }">Tweet {{ tweet.tweetId }} sedang dimuat</Tweet>
   </div>
   <div class="my-3 flex justify-center">
     <router-link v-for="index in tweets.totalPages" :key="index" :to='"/folders/view/" + folder.id + "/" + index' @click.native="fetchTweets"
@@ -20,8 +20,13 @@
 </template>
 
 <script>
+import { Tweet } from 'vue-tweet-embed'
+
 export default {
   name: "TweetEmbed",
+  components: {
+    Tweet
+  },
   computed: {
     tweets() { return this.$store.state.tweets },
     folder() { return this.$store.state.folder },
