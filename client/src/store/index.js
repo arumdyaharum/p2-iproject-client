@@ -7,10 +7,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://tweetfiling.herokuapp.com',
     user: {},
     password: '',
-    size: 2,
+    size: 10,
     folders: {},
     folder: {},
     tweets: {},
@@ -57,7 +57,6 @@ export default new Vuex.Store({
         url: `${state.baseURL}/users/${state.user.email}`
       })
       .then(res => {
-        // console.log(res.data.email)
         if(res.data) {
           router.push('/danger').catch(() => { console.log("Danger lagi") })
         } else {

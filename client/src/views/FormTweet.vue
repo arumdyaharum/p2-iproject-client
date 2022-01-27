@@ -76,14 +76,15 @@ export default {
       set(data) {
         this.data.tweetId = data
       }
-    }
+    },
+    tweet_id() { return this.$store.state.tweet.id }
   },
   methods: {
     doFormTweet() {
       if(this.page === "Tambah") {
         this.$store.dispatch("doAddTweet", {id: this.folder.id, data: this.data})
       } else {
-        this.$store.dispatch("doEditTweet", {id: this.folder.id, tweetId: this.tweet.id, data: this.data})
+        this.$store.dispatch("doEditTweet", {id: this.folder.id, tweetId: +this.tweet_id, data: this.data})
       }
     }
   },
