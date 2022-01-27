@@ -50,7 +50,7 @@ export default new Vuex.Store({
         console.log(err.response.data.message);
       })
     },
-    fetchUserById({state, commit, dispatch}, data) {
+    fetchUserById({state, commit}, data) {
       commit("CHANGE_USER", data)
       axios({
         method: 'get',
@@ -60,31 +60,31 @@ export default new Vuex.Store({
         if(res.data) {
           router.push('/danger').catch(() => { console.log("Danger lagi") })
         } else {
-          dispatch('checkEmail')
-        }
-      })
-      .catch(err => {
-        console.log(err.response.data.message);
-      })
-    },
-    checkEmail({state}) {
-      axios({
-        method: "get",
-        url: `${state.baseURL}/email?email=${state.user.email}`
-      })
-      .then(res => {
-        if(res.data.status === "safe") {
           router.push('/validate').catch(() => { console.log("Validasi lagi") })
-        } else if(res.data.status === "danger") {
-          router.push('/danger').catch(() => { console.log("Danger lagi") })
-        } else {
-          router.push('/warning').catch(() => { console.log("Warning lagi") })
         }
       })
       .catch(err => {
         console.log(err.response.data.message);
       })
     },
+    // checkEmail({state}) {
+    //   axios({
+    //     method: "get",
+    //     url: `${state.baseURL}/email?email=${state.user.email}`
+    //   })
+    //   .then(res => {
+    //     if(res.data.status === "safe") {
+    //       router.push('/validate').catch(() => { console.log("Validasi lagi") })
+    //     } else if(res.data.status === "danger") {
+    //       router.push('/danger').catch(() => { console.log("Danger lagi") })
+    //     } else {
+    //       router.push('/warning').catch(() => { console.log("Warning lagi") })
+    //     }
+    //   })
+    //   .catch(err => {
+    //     console.log(err.response.data.message);
+    //   })
+    // },
     sendEmail({state, commit}) {
       axios({
         method: 'post',
