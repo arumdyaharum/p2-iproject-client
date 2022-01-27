@@ -50,8 +50,25 @@ export default new Vuex.Store({
         console.log(err.response.data.message);
       })
     },
-    checkEmail({state, commit}, data) {
+    fetchUserById({state, commit, dispatch}, data) {
       commit("CHANGE_USER", data)
+      axios({
+        method: 'get',
+        url: `${state.baseURL}/users/${state.user.email}`
+      })
+      .then(res => {
+        // console.log(res.data.email)
+        if(res.data) {
+          router.push('/danger').catch(() => { console.log("Danger lagi") })
+        } else {
+          dispatch('checkEmail')
+        }
+      })
+      .catch(err => {
+        console.log(err.response.data.message);
+      })
+    },
+    checkEmail({state}) {
       axios({
         method: "get",
         url: `${state.baseURL}/email?email=${state.user.email}`
