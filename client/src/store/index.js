@@ -7,7 +7,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    baseURL: 'https://tweetfiling.herokuapp.com',
+    // baseURL: 'https://tweetfiling.herokuapp.com',
+    baseURL: 'http://localhost:3000',
     user: {},
     password: '',
     size: 10,
@@ -59,6 +60,11 @@ export default new Vuex.Store({
       .then(res => {
         if(res.data) {
           router.push('/danger').catch(() => { console.log("Danger lagi") })
+          this._vm.$swal({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!'
+          })
         } else {
           router.push('/validate').catch(() => { console.log("Validasi lagi") })
         }
@@ -67,24 +73,6 @@ export default new Vuex.Store({
         console.log(err.response.data.message);
       })
     },
-    // checkEmail({state}) {
-    //   axios({
-    //     method: "get",
-    //     url: `${state.baseURL}/email?email=${state.user.email}`
-    //   })
-    //   .then(res => {
-    //     if(res.data.status === "safe") {
-    //       router.push('/validate').catch(() => { console.log("Validasi lagi") })
-    //     } else if(res.data.status === "danger") {
-    //       router.push('/danger').catch(() => { console.log("Danger lagi") })
-    //     } else {
-    //       router.push('/warning').catch(() => { console.log("Warning lagi") })
-    //     }
-    //   })
-    //   .catch(err => {
-    //     console.log(err.response.data.message);
-    //   })
-    // },
     sendEmail({state, commit}) {
       axios({
         method: 'post',

@@ -3,7 +3,7 @@
   <Navbar />
   <section class="md:flex box-border h-fit mx-10 p-7 rounded-lg bg-white">
     <div class="md:w-1/2 w-full md:pr-5 mb-5">
-      <h1 class="md:text-4xl text-3xl mb-10 font-bold">Selamat Datang, {{ user.username }}!</h1>
+      <h1 class="md:text-4xl text-3xl md:mb-10 mb-5 font-bold">Selamat Datang, {{ user.username }}!</h1>
       <router-view/>
     </div>
     <div class="md:w-1/2 w-full md:pl-5 md:mt-0 mt-5 mb-5">

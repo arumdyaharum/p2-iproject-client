@@ -15,11 +15,6 @@ const routes = [
     component: () => import('../views/Danger.vue')
   },
   {
-    path: '/warning',
-    name: 'Warning',
-    component: () => import('../views/Warning.vue')
-  },
-  {
     path: '/validate',
     name: 'Validation',
     component: () => import('../views/Validation.vue')
