@@ -7,8 +7,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    // baseURL: 'https://tweetfiling.herokuapp.com',
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://tweetfiling.herokuapp.com',
     user: {},
     password: '',
     size: 10,
