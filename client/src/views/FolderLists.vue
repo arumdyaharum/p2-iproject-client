@@ -1,7 +1,7 @@
 <template>
 <div id="home" :class='{"md:block hidden": tweetPage}'>
   <div class="flex justify-between items-center text-lg">
-    <h3 class="mb-3 font-bold">Daftar Folder Tweet Kamu</h3>
+    <h3 class="mb-3 font-bold">Daftar Folder</h3>
     <router-link to="/add" class="p-2"><i class="fas fa-plus"></i></router-link>
   </div>
   <hr>

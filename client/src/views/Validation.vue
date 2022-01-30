@@ -26,6 +26,11 @@ export default {
       if(this.password === this.OTP) {
         this.$store.dispatch("doRegister", this.user)
       } else {
+        this.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Kode OTP Salah'
+        })
         this.$router.push('/danger').catch(() => { console.log("Danger lagi") })
       }
     }

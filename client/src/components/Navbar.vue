@@ -14,6 +14,11 @@ export default {
   methods: {
     doLogout() {
       localStorage.removeItem("access_token")
+      this.$swal({
+        icon: 'success',
+        title: 'Berhasil!',
+        text: 'Sampai jumpa lagi!'
+      })
       this.$router.push('/login').catch(() => { console.log("Login lagi") })
     }
   }

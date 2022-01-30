@@ -14,7 +14,7 @@
   </div>
 </div>
 <div v-show="loading" class="h-screen w-full absolute flex flex-col justify-center items-center">
-    <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="">
+    <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" width="100" alt="">
 </div>
 </div>
 </template>
