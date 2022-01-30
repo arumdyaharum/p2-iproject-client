@@ -14,7 +14,20 @@ export default {
   props: ["tweet", "index", "folderId"],
   methods: {
     doDeleteTweet(id) {
-      this.$store.dispatch("doDeleteTweet", {id: +this.folderId, tweetId: id})
+      this.$swal({
+        title: 'Kamu yakin?',
+        text: "Kami tidak bisa mengembalikan folder ini!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Iya, hapus saja!',
+        cancelButtonText: 'Tidak jadi!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.$store.dispatch("doDeleteTweet", {id: +this.folderId, tweetId: id})
+        }
+      })
     }
   }
 }

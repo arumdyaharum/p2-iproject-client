@@ -16,7 +16,20 @@ export default {
   props: ["folder", "index"],
   methods: {
     doDeleteFolder(id) {
-      this.$store.dispatch("doDeleteFolder", id)
+      this.$swal({
+        title: 'Kamu yakin?',
+        text: "Kami tidak bisa mengembalikan folder ini!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Iya, hapus saja!',
+        cancelButtonText: 'Tidak jadi!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.$store.dispatch("doDeleteFolder", id)
+        }
+      })
     }
   }
 }

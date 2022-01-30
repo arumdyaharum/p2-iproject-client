@@ -7,7 +7,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    baseURL: 'https://tweetfiling.herokuapp.com',
+    // baseURL: 'https://tweetfiling.herokuapp.com',
+    baseURL: 'http://localhost:3000',
     user: {},
     password: '',
     size: 10,
@@ -44,10 +45,20 @@ export default new Vuex.Store({
         data
       })
       .then(() => {
+        this._vm.$swal({
+          icon: 'success',
+          title: 'Berhasil!',
+          text: 'Pendaftaran Akun Berhasil!'
+        })
         router.push('/login').catch(() => { console.log("Login lagi") })
       })
       .catch(err => {
         console.log(err.response.data.message);
+        this._vm.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.response.data.message
+        })
       })
     },
     fetchUserById({state, commit}, data) {
@@ -59,32 +70,24 @@ export default new Vuex.Store({
       .then(res => {
         if(res.data) {
           router.push('/danger').catch(() => { console.log("Danger lagi") })
+          this._vm.$swal({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Email sudah terdaftar!'
+          })
         } else {
           router.push('/validate').catch(() => { console.log("Validasi lagi") })
         }
       })
       .catch(err => {
         console.log(err.response.data.message);
+        this._vm.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.response.data.message
+        })
       })
     },
-    // checkEmail({state}) {
-    //   axios({
-    //     method: "get",
-    //     url: `${state.baseURL}/email?email=${state.user.email}`
-    //   })
-    //   .then(res => {
-    //     if(res.data.status === "safe") {
-    //       router.push('/validate').catch(() => { console.log("Validasi lagi") })
-    //     } else if(res.data.status === "danger") {
-    //       router.push('/danger').catch(() => { console.log("Danger lagi") })
-    //     } else {
-    //       router.push('/warning').catch(() => { console.log("Warning lagi") })
-    //     }
-    //   })
-    //   .catch(err => {
-    //     console.log(err.response.data.message);
-    //   })
-    // },
     sendEmail({state, commit}) {
       axios({
         method: 'post',
@@ -96,6 +99,11 @@ export default new Vuex.Store({
       })
       .catch(err => {
         console.log(err.response.data.message);
+        this._vm.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.response.data.message
+        })
       })
     },
     doLogin({state, dispatch}, data) {
@@ -107,10 +115,20 @@ export default new Vuex.Store({
       .then(res => {
         localStorage.setItem('access_token', res.data.access_token)
         dispatch("fetchUser")
+        this._vm.$swal({
+          icon: 'success',
+          title: 'Berhasil!',
+          text: 'Selamat datang!'
+        })
         router.push('/').catch(() => { console.log("Home lagi") })
       })
       .catch(err => {
         console.log(err.response.data.message);
+        this._vm.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.response.data.message
+        })
       })
     },
     fetchUser({state, commit}) {
@@ -126,6 +144,11 @@ export default new Vuex.Store({
       })
       .catch(err => {
         console.log(err.response.data.message);
+        this._vm.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.response.data.message
+        })
       })
     },
     fetchFolders({state, commit}, page) {
@@ -141,6 +164,11 @@ export default new Vuex.Store({
       })
       .catch(err => {
         console.log(err.response.data.message);
+        this._vm.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.response.data.message
+        })
       })
     },
     fetchFolder ({state, commit}, id) {
@@ -156,6 +184,11 @@ export default new Vuex.Store({
       })
       .catch(err => {
         console.log(err.response.data.message);
+        this._vm.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.response.data.message
+        })
       })
     },
     doAddFolder({state}, name) {
@@ -168,10 +201,20 @@ export default new Vuex.Store({
         }
       })
       .then(() => {
+        this._vm.$swal({
+          icon: 'success',
+          title: 'Berhasil!',
+          text: 'Berhasil menambahkan folder!'
+        })
         router.push('/').catch(() => { console.log("Home lagi") })
       })
       .catch(err => {
         console.log(err.response.data.message);
+        this._vm.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.response.data.message
+        })
       })
     },
     doEditFolder({state}, data) {
@@ -184,10 +227,20 @@ export default new Vuex.Store({
         }
       })
       .then(() => {
+        this._vm.$swal({
+          icon: 'success',
+          title: 'Berhasil!',
+          text: 'Berhasil mengubah folder!'
+        })
         router.push('/').catch(() => { console.log("Home lagi") })
       })
       .catch(err => {
         console.log(err.response.data.message);
+        this._vm.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.response.data.message
+        })
       })
     },
     doDeleteFolder({state, dispatch}, id) {
@@ -200,10 +253,20 @@ export default new Vuex.Store({
       })
       .then(() => {
         dispatch("fetchFolders")
+        this._vm.$swal({
+          icon: 'success',
+          title: 'Berhasil!',
+          text: 'Berhasil menghapus Folder!'
+        })
         router.push('/').catch(() => { console.log("Home lagi") })
       })
       .catch(err => {
         console.log(err.response.data.message);
+        this._vm.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.response.data.message
+        })
       })
     },
     fetchTweets({state, commit}, data) {
@@ -219,6 +282,11 @@ export default new Vuex.Store({
       })
       .catch(err => {
         console.log(err.response.data.message);
+        this._vm.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.response.data.message
+        })
       })
     },
     fetchTweet({state, commit}, id) {
@@ -234,6 +302,11 @@ export default new Vuex.Store({
       })
       .catch(err => {
         console.log(err.response.data.message);
+        this._vm.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.response.data.message
+        })
       })
     },
     doAddTweet({state}, data) {
@@ -246,10 +319,20 @@ export default new Vuex.Store({
         }
       })
       .then(() => {
+        this._vm.$swal({
+          icon: 'success',
+          title: 'Berhasil!',
+          text: 'Berhasil menambahkan Tweet!'
+        })
         router.push(`/folders/view/${data.id}/1`).catch(() => { console.log("Timeline lagi") })
       })
       .catch(err => {
         console.log(err.response.data.message);
+        this._vm.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.response.data.message
+        })
       })
     },
     doEditTweet({state}, data) {
@@ -262,10 +345,20 @@ export default new Vuex.Store({
         }
       })
       .then(() => {
+        this._vm.$swal({
+          icon: 'success',
+          title: 'Berhasil!',
+          text: 'Berhasil mengubah Tweet!'
+        })
         router.push(`/folders/view/${data.id}/1`).catch(() => { console.log("Timeline lagi") })
       })
       .catch(err => {
         console.log(err.response.data.message);
+        this._vm.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.response.data.message
+        })
       })
     },
     doDeleteTweet({state, dispatch}, data) {
@@ -278,10 +371,20 @@ export default new Vuex.Store({
       })
       .then(() => {
         dispatch("fetchTweets", { page: 1, id: data.id })
+        this._vm.$swal({
+          icon: 'success',
+          title: 'Berhasil!',
+          text: 'Berhasil menghapus Tweet!'
+        })
         router.push(`/folders/view/${data.id}/1`).catch(() => { console.log("Timeline lagi") })
       })
       .catch(err => {
         console.log(err.response.data.message);
+        this._vm.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.response.data.message
+        })
       })
     }
   },
