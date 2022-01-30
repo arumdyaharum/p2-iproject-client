@@ -59,5 +59,12 @@ export default {
       this.fetchFolder(this.$route.params.id)
     }
   },
+  beforeRouteEnter(_, _1, next) {
+    next(vm => {
+      if(!vm.$store.state.folders.data) {
+        vm.$router.push('/').catch(() => { console.log("Home lagi") })
+      }
+    })
+  }
 }
 </script>

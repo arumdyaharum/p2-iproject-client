@@ -37,6 +37,6 @@ export default {
   },
   created() {
     this.$store.dispatch("sendEmail")
-  }
+  },
 }
 </script>

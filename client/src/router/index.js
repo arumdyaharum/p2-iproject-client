@@ -98,9 +98,9 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const access_token = localStorage.getItem("access_token") || ''
-  if((to.name === "Login" || to.name === "Register" || to.name === "Danger" || to.name === "Warning" || to.name === "Validation") && !access_token) {
+  if((to.name === "Login" || to.name === "Register" || to.name === "Danger" || to.name === "Validation") && !access_token) {
     next()
-  } else if((to.name !== "Login" || to.name !== "Register" || to.name !== "Danger" || to.name !== "Warning" || to.name !== "Validation") && !access_token) {
+  } else if((to.name !== "Login" || to.name !== "Register" || to.name !== "Danger" || to.name !== "Validation") && !access_token) {
     next("/login")
   } else {
     next()

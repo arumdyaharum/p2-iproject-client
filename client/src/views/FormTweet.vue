@@ -78,6 +78,13 @@ export default {
     if(this.page === "Ubah") {
       this.fetchTweet(this.$route.params.tweetId)
     }
+  },
+  beforeRouteEnter(_, _1, next) {
+    next(vm => {
+      if(!vm.$store.state.folders.data) {
+        vm.$router.push('/').catch(() => { console.log("Home lagi") })
+      }
+    })
   }
 }
 </script>

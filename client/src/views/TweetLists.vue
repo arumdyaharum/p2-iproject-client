@@ -39,6 +39,13 @@ export default {
   created() {
     this.$store.dispatch('fetchFolder', this.$route.params.id)
     this.fetchTweets()
+  },
+  beforeRouteEnter(_, _1, next) {
+    next(vm => {
+      if(!vm.$store.state.folders.data) {
+        vm.$router.push('/').catch(() => { console.log("Home lagi") })
+      }
+    })
   }
 }
 </script>
